@@ -327,7 +327,7 @@ const ipfs = new IPFS({
 })
 ```
 
-- We connected the browser nodes to an external node over its websocket transport using the `/ip4/127.0.0.1/tcp/4003/ws/ipfs/...` multiaddr. That extenrnal node happens to be `HOP` node, meaning that it can relay connections for our browsers (and other nodes) allowing our browsers to connect
+- We connected the browser nodes to an external node over its websocket transport using the `/ip4/127.0.0.1/tcp/4003/ws/ipfs/...` multiaddr. That external node happens to be `HOP` node, meaning that it can relay connections for our browsers (and other nodes) allowing our browsers to connect
 
 - And finally we connected the two browser nodes using the `/p2p-circuit/ipfs/...` multiaddr
 
