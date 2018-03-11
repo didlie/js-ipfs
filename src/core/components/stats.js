@@ -39,6 +39,7 @@ function bandwidthStats (self, opts) {
 
 module.exports = function stats (self) {
   const _bwPullStream = (opts) => {
+    opts = opts || {}
     let interval = null
     let stream = Pushable(true, () => {
       if (interval) {
@@ -72,6 +73,11 @@ module.exports = function stats (self) {
     bitswap: require('./bitswap')(self).stat,
     repo: require('./repo')(self).stat,
     bw: promisify((opts, callback) => {
+      if (typeof opts === 'function') {
+        callback = opts
+        opts = {}
+      }
+
       bandwidthStats(self, opts)
         .then((stats) => callback(null, stats))
         .catch((err) => callback(err))
